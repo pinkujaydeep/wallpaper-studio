@@ -1,33 +1,27 @@
-# Wallpaper Studio
+# Wallpaper Studio V2
 
-A polished React + Vite procedural wallpaper generator.
+Polished procedural wallpaper generator.
 
-## Features
-- Mobile wallpaper: 1440 × 2560
-- Laptop wallpaper: 2560 × 1600
-- Six procedural design styles
-- Random seed generation
-- Palette selection
-- Complexity control
-- Favorite/history stored in localStorage
-- PNG download
-- Responsive desktop/mobile UI
-- No backend required for generation
+## New in V2
+- 20 visual styles
+- Phone HD/QHD/4K
+- Laptop FHD/QHD/4K
+- Desktop 4K
+- Tablet preset
+- Full-resolution PNG export
+- Density, glow, grain and vignette controls
+- 8 color palettes
+- Seed-based reproducibility
+- Favorites/history in localStorage
+- Randomize and Surprise Me
+- Responsive mobile UI
+- Fully local Canvas rendering
 
 ## Run
 
-```bash
 npm install
 npm run dev
-```
-
-Then open the local Vite URL.
 
 ## Build
 
-```bash
 npm run build
-npm run preview
-```
-
-The wallpaper itself is generated locally with the HTML Canvas API, so the app does not need an image-generation API for the core feature.
