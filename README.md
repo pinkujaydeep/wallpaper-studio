@@ -25,3 +25,7 @@ npm run dev
 ## Build
 
 npm run build
+
+## V2.0.1 fix
+The V2.0 package contained an invalid `Blur` icon import from `lucide-react`.
+This patch removes that import. No other functionality depends on it.

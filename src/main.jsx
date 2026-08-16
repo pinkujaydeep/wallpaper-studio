@@ -1,6 +1,6 @@
 import React,{useEffect,useMemo,useRef,useState}from"react";
 import{createRoot}from"react-dom/client";
-import{Download,Shuffle,Heart,Smartphone,Laptop,Tablet,SlidersHorizontal,Copy,RefreshCw,Maximize2,Sun,Blur,RotateCw,Grid3X3,Image as ImageIcon,Trash2}from"lucide-react";
+import{Download,Shuffle,Heart,SlidersHorizontal,Copy,RefreshCw,Image as ImageIcon,Trash2}from"lucide-react";
 import"./styles.css";
 
 const PRESETS={
