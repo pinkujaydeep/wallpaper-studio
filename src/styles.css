@@ -4,28 +4,42 @@
 
 body {
     margin: 0;
-    background: #07080c;
+    background: #08090d;
     color: #f4f4f5;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+    font-family: Inter, system-ui, sans-serif
+}
+
+html[data-theme=light] body {
+    background: #f5f6fa;
+    color: #15161b
 }
 
 .app {
     min-height: 100vh;
-    background: radial-gradient(circle at 15% 0, #191b2c, transparent 36%), #07080c
+    background: radial-gradient(circle at 12% 0, #202039, transparent 35%), #08090d
 }
 
-.topbar {
+html[data-theme=light] .app {
+    background: #f5f6fa
+}
+
+header {
     height: 70px;
-    border-bottom: 1px solid #222530;
+    border-bottom: 1px solid #252832;
+    background: #090a0eee;
     display: flex;
     align-items: center;
-    gap: 28px;
     padding: 0 30px;
-    background: #08090ddd;
-    backdrop-filter: blur(16px);
+    gap: 30px;
     position: sticky;
     top: 0;
-    z-index: 20
+    z-index: 10;
+    backdrop-filter: blur(16px)
+}
+
+html[data-theme=light] header {
+    background: #ffffffdd;
+    border-color: #dddfe6
 }
 
 .brand {
@@ -42,261 +56,295 @@ body {
 .brand span {
     font-size: 9px;
     color: #a494ff;
-    border: 1px solid #514a73;
-    padding: 3px 6px;
-    border-radius: 5px
+    border: 1px solid #615687;
+    border-radius: 5px;
+    padding: 3px 6px
 }
 
-.topbar nav {
+.brand b {
+    font-size: 15px
+}
+
+nav {
     display: flex;
-    gap: 4px;
+    gap: 3px;
     flex: 1
 }
 
-.topbar nav button {
-    background: transparent;
+nav button,
+.head button {
     border: 0;
-    color: #777b87;
-    padding: 9px 11px;
+    background: transparent;
+    color: #777b86;
     border-radius: 8px;
-    display: flex;
-    gap: 7px;
-    align-items: center;
-    cursor: pointer
+    padding: 9px 12px
 }
 
-.topbar nav button.on {
-    background: #1d1f29;
+nav button.on {
+    background: #20222d;
     color: #fff
 }
 
-.seed {
-    font: 10px monospace;
-    color: #777;
+.head {
     display: flex;
-    gap: 7px;
-    align-items: center
+    gap: 3px
 }
 
-.seed b {
-    color: #bbb
-}
-
-.seed button {
-    background: none;
-    border: 0;
-    color: #777;
-    cursor: pointer
+.head svg {
+    width: 17px
 }
 
 main {
     max-width: 1480px;
     margin: auto;
-    padding: 32px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 370px;
-    gap: 30px
+    padding: 34px
 }
 
-.mainPanel {
-    min-width: 0
+.hero {
+    padding: 45px 0 50px;
+    max-width: 850px
 }
 
-.heroHead {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 22px
-}
-
-.heroHead small,
-.sectionHead small {
+.hero small,
+.studioTop small,
+.libraryTop small {
     font-size: 10px;
-    letter-spacing: .18em;
-    color: #707582;
-    font-weight: 750
+    letter-spacing: .2em;
+    color: #747987;
+    font-weight: 800
 }
 
-.heroHead h1 {
-    font-size: clamp(40px, 4.6vw, 66px);
-    line-height: .94;
-    letter-spacing: -.06em;
-    margin: 8px 0
+.hero h1 {
+    font-size: clamp(54px, 7vw, 92px);
+    line-height: .9;
+    letter-spacing: -.07em;
+    margin: 12px 0
 }
 
-.heroHead i {
+.hero i,
+.studioTop i {
     font-style: normal;
-    color: #a594ff
-}
-
-.outline {
-    height: 43px;
-    padding: 0 14px;
-    border: 1px solid #2d303b;
-    background: #14161e;
-    color: #eee;
-    border-radius: 10px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    cursor: pointer
-}
-
-.canvasFrame {
-    position: relative;
-    background: #101218;
-    border: 1px solid #292d38;
-    border-radius: 20px;
-    padding: 14px;
-    min-height: 610px;
-    max-height: 760px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 30px 100px #0009;
-    overflow: hidden
-}
-
-.canvasFrame canvas {
-    max-width: 100%;
-    max-height: 720px;
-    width: auto;
-    height: auto;
-    border-radius: 9px;
-    box-shadow: 0 15px 60px #000a
-}
-
-.canvasFrame.wide canvas {
-    width: 100%
-}
-
-.canvasFrame.tall canvas {
-    height: 680px
-}
-
-.dimension,
-.liveBadge {
-    position: absolute;
-    bottom: 22px;
-    background: #08090ddd;
-    border: 1px solid #333743;
-    border-radius: 7px;
-    padding: 7px 10px;
-    font: 10px monospace;
-    color: #aaa
-}
-
-.dimension {
-    right: 22px
-}
-
-.liveBadge {
-    left: 22px;
-    color: #a494ff;
-    display: flex;
-    gap: 6px;
-    align-items: center
-}
-
-.animated .canvasFrame {
-    box-shadow: 0 0 70px #8b5cf633, 0 30px 100px #0009
-}
-
-.actions {
-    display: flex;
-    gap: 9px;
-    margin-top: 15px
-}
-
-.actions button,
-.primary,
-.surprise,
-.batchBtn,
-.animateBtn,
-.danger {
-    height: 45px;
-    padding: 0 16px;
-    border: 1px solid #2c2f3a;
-    background: #15171e;
-    color: #eee;
-    border-radius: 10px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-    font-weight: 650;
-    cursor: pointer
-}
-
-.actions .primary,
-.primary {
-    background: #f4f4f5;
-    color: #08090d;
-    border-color: #f4f4f5
-}
-
-.actions .active {
-    color: #ff9be7;
-    border-color: #704e6d
-}
-
-.aiCard {
-    margin-top: 18px;
-    background: linear-gradient(135deg, #11131b, #151225);
-    border: 1px solid #312d49;
-    border-radius: 15px;
-    padding: 18px
-}
-
-.aiTitle {
-    display: flex;
-    gap: 10px;
-    align-items: center
-}
-
-.aiTitle svg {
     color: #a494ff
 }
 
-.aiTitle b,
-.aiTitle small {
-    display: block
+.hero p {
+    color: #858995;
+    font-size: 16px;
+    max-width: 580px
 }
 
-.aiTitle small {
-    font-size: 10px;
-    color: #777b87;
-    margin-top: 3px
+.hero button,
+.actions button,
+.studioTop button,
+.libraryTop button {
+    height: 44px;
+    border: 1px solid #30333d;
+    background: #171920;
+    color: #eee;
+    border-radius: 10px;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 7px
 }
 
-.modeSwitch {
+.primary {
+    background: #f5f5f5 !important;
+    color: #08090d !important;
+    border-color: #f5f5f5 !important;
+    font-weight: 700
+}
+
+.toolbar {
     display: flex;
-    background: #090a0f;
-    border-radius: 8px;
-    padding: 3px;
-    margin-top: 14px;
-    width: max-content
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 18px
 }
 
-.modeSwitch button {
+.search {
+    height: 43px;
+    border: 1px solid #2b2e38;
+    background: #11131a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+    width: 270px;
+    color: #747986
+}
+
+.search input {
     border: 0;
-    background: transparent;
-    color: #777;
-    padding: 7px 11px;
-    border-radius: 6px;
-    cursor: pointer
+    outline: 0;
+    background: none;
+    color: #eee;
+    width: 100%
 }
 
-.modeSwitch button.sel {
-    background: #282335;
+.cats {
+    display: flex;
+    gap: 5px;
+    overflow: auto
+}
+
+.cats button,
+.cols button {
+    border: 1px solid #2b2e38;
+    background: #11131a;
+    color: #888;
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap
+}
+
+.cats button.sel,
+.cols button.sel {
+    background: #29233b;
+    color: #fff;
+    border-color: #8e7df2
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 13px
+}
+
+.styleCard {
+    border: 1px solid #292c36;
+    background: #11131a;
+    border-radius: 13px;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
     color: #fff
 }
 
-.promptArea {
-    margin-top: 12px
+.styleCard canvas {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover
 }
 
-.promptArea textarea {
+.styleCard div,
+.card div {
+    padding: 11px
+}
+
+.styleCard b,
+.styleCard small,
+.card b,
+.card small {
+    display: block
+}
+
+.styleCard small,
+.card small {
+    font-size: 9px;
+    color: #666b77;
+    margin-top: 3px
+}
+
+.studioPage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 28px
+}
+
+.studioTop,
+.libraryTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px
+}
+
+.studioTop h2,
+.libraryTop h2 {
+    font-size: 46px;
+    letter-spacing: -.055em;
+    margin: 8px 0
+}
+
+.preview {
+    position: relative;
+    min-height: 610px;
+    max-height: 750px;
+    background: #101218;
+    border: 1px solid #292d38;
+    border-radius: 18px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 30px 100px #0008
+}
+
+.preview canvas {
+    max-height: 710px;
+    max-width: 100%;
+    border-radius: 8px
+}
+
+.preview.tall canvas {
+    height: 680px
+}
+
+.preview.wide canvas {
+    width: 100%
+}
+
+.preview>span {
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    background: #08090ddd;
+    border: 1px solid #353845;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font: 9px monospace;
+    color: #aaa
+}
+
+.actions {
+    margin-top: 13px
+}
+
+.ai {
+    margin-top: 17px;
+    padding: 17px;
+    border: 1px solid #37304f;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #11131a, #181426)
+}
+
+.ai>div {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+.ai>div svg {
+    color: #a494ff
+}
+
+.ai b,
+.ai small {
+    display: block
+}
+
+.ai small {
+    font-size: 9px;
+    color: #777;
+    margin-top: 3px
+}
+
+.ai textarea {
     width: 100%;
     min-height: 90px;
     background: #0b0c11;
@@ -304,136 +352,102 @@ main {
     border: 1px solid #2d303b;
     border-radius: 9px;
     padding: 11px;
-    resize: vertical;
-    outline: none
+    resize: vertical
 }
 
-.aiRow {
-    display: flex;
-    gap: 7px;
-    margin-top: 8px
-}
-
-.aiRow select,
-.aiRow input {
-    height: 39px;
-    background: #181a22;
-    color: #eee;
-    border: 1px solid #2d303b;
-    border-radius: 8px;
-    padding: 0 9px
-}
-
-.aiRow select {
-    width: 155px
-}
-
-.aiRow input {
-    flex: 1
-}
-
-.aiRow .primary {
-    height: 39px
-}
-
-.hint {
-    display: block;
-    color: #696e79;
-    font-size: 9px;
+.ai>.primary {
     margin-top: 8px;
-    line-height: 1.5
+    height: 40px
 }
 
 aside {
     background: #101218;
-    border: 1px solid #252934;
-    border-radius: 18px;
-    padding: 21px;
-    align-self: start;
+    border: 1px solid #272a34;
+    border-radius: 17px;
+    padding: 20px;
     position: sticky;
-    top: 92px
+    top: 92px;
+    align-self: start
 }
 
-aside h2 {
-    font-size: 15px;
-    margin: 0 0 22px;
+aside h3 {
+    margin: 0 0 20px;
     display: flex;
     gap: 8px;
-    align-items: center
+    align-items: center;
+    font-size: 15px
 }
 
-aside h2 svg {
+aside h3 svg {
     color: #a494ff
 }
 
 label {
     display: flex;
     justify-content: space-between;
+    color: #999eaa;
     font-size: 11px;
-    color: #a3a6b0;
     font-weight: 700;
-    margin: 18px 0 8px
+    margin: 17px 0 8px
 }
 
-.presetGrid {
+.devices {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px
 }
 
-.presetGrid button {
+.devices button {
     background: #181a21;
-    border: 1px solid #292c35;
     color: #aaa;
+    border: 1px solid #2b2e38;
     border-radius: 8px;
     text-align: left;
     padding: 8px;
-    font-size: 10px;
-    cursor: pointer
+    font-size: 10px
 }
 
-.presetGrid button span {
+.devices button.sel {
+    border-color: #8d7df2;
+    background: #262136;
+    color: #fff
+}
+
+.devices small {
     display: block;
-    color: #646975;
+    color: #626875;
     font: 8px monospace;
     margin-top: 3px
 }
 
-.presetGrid button.sel {
-    background: #242131;
-    border-color: #8e7df2;
-    color: #fff
-}
-
 select {
-    width: 100%;
     height: 40px;
+    width: 100%;
     background: #191b23;
     color: #eee;
     border: 1px solid #2d303a;
     border-radius: 8px;
-    padding: 0 10px
+    padding: 0 9px
 }
 
-.palettes {
+.pals {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 7px
+    gap: 6px
 }
 
 .pal {
-    height: 33px;
-    padding: 3px;
-    border: 2px solid transparent;
+    height: 32px;
     background: #090a0e;
-    border-radius: 7px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    padding: 3px;
     display: flex;
-    gap: 2px;
-    cursor: pointer
+    gap: 2px
 }
 
 .pal.sel {
-    border-color: #9c8cff
+    border-color: #a494ff
 }
 
 .pal span {
@@ -443,251 +457,208 @@ select {
 
 .range input {
     width: 100%;
-    accent-color: #9c8cff
+    accent-color: #9b8cff
 }
 
 .range label b {
     color: #ddd
 }
 
-.surprise,
-.batchBtn,
-.animateBtn {
-    width: 100%;
-    margin-top: 10px;
-    background: #1a1c24
-}
-
-.animateBtn.enabled {
-    color: #a494ff;
-    border-color: #62538d
-}
-
-.batchBtn {
-    margin-top: 7px
-}
-
-.fullSection {
-    grid-column: 1/-1
-}
-
-.sectionHead {
+.libraryTop>div:last-child {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px
+    gap: 7px
 }
 
-.sectionHead h2 {
-    font-size: 35px;
-    letter-spacing: -.04em;
-    margin: 8px 0
-}
-
-.batchGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px
-}
-
-.batchCard,
-.libraryCard {
-    background: #11131a;
-    border: 1px solid #292c35;
-    border-radius: 14px;
-    overflow: hidden
-}
-
-.thumb {
-    height: 360px;
-    background: #090a0f;
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
-
-.thumb canvas {
-    height: 340px;
-    max-width: 100%;
-    width: auto;
-    border-radius: 5px
-}
-
-.batchCard>div:not(.thumb),
-.libraryInfo {
-    padding: 11px
-}
-
-.batchCard b,
-.batchCard small,
-.libraryInfo b,
-.libraryInfo small {
-    display: block
-}
-
-.batchCard small,
-.libraryInfo small {
-    color: #6d727e;
-    font-size: 9px;
-    margin-top: 3px
-}
-
-.cardBtns,
-.libraryActions {
-    display: flex;
-    gap: 7px;
-    padding: 0 11px 11px
-}
-
-.cardBtns button,
-.libraryActions button {
-    height: 34px;
-    border: 1px solid #2c3039;
-    background: #181a21;
-    color: #ddd;
-    border-radius: 7px;
-    padding: 0 10px;
+.cols {
     display: flex;
     gap: 6px;
-    align-items: center;
-    cursor: pointer
+    overflow: auto;
+    margin-bottom: 18px
 }
 
-.cardBtns button:first-child {
-    flex: 1
-}
-
-.libraryGrid {
+.libGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px
 }
 
-.libraryThumb {
-    height: 300px;
-    background: #090a0f;
-    display: flex;
-    align-items: center;
-    justify-content: center
+.card {
+    background: #11131a;
+    border: 1px solid #292c36;
+    border-radius: 12px;
+    overflow: hidden
 }
 
-.libraryThumb canvas {
-    max-height: 285px;
-    max-width: 90%;
-    width: auto;
-    height: auto
+.card canvas {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover
 }
 
-.libraryActions button:first-child {
-    flex: 1
+.card>button {
+    height: 34px;
+    margin: 0 7px 10px;
+    border: 1px solid #2c3039;
+    background: #181a21;
+    color: #ddd;
+    border-radius: 7px;
+    padding: 0 10px
 }
 
 .empty {
     min-height: 330px;
-    border: 1px dashed #30333e;
+    border: 1px dashed #30333d;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 12px;
-    color: #737783;
-    text-align: center;
-    padding: 40px
+    align-items: center;
+    color: #777;
+    gap: 9px
 }
 
 .empty svg {
-    color: #9c8cff
+    color: #a494ff
 }
 
-.empty b {
-    max-width: 400px;
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #000b;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px
+}
+
+.modal>div {
+    max-width: 430px;
+    background: #151720;
+    border: 1px solid #39334d;
+    border-radius: 17px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 30px 100px #000
+}
+
+.modal svg {
+    color: #a494ff
+}
+
+.modal p {
+    color: #858995;
     font-size: 13px;
-    font-weight: 500
+    line-height: 1.6
 }
 
-.danger {
-    color: #ff9b9b
+.modal button {
+    width: 100%;
+    height: 44px;
+    border-radius: 9px
 }
 
 .toast {
     position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 50;
-    background: #1b1d25;
-    border: 1px solid #383b46;
-    box-shadow: 0 15px 45px #0009;
-    border-radius: 10px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 40;
+    background: #1d2028;
+    border: 1px solid #3a3e4a;
+    border-radius: 9px;
     padding: 11px 13px;
-    color: #ddd;
-    font-size: 11px;
     display: flex;
-    align-items: center;
     gap: 8px;
-    cursor: pointer
+    align-items: center;
+    font-size: 11px;
+    box-shadow: 0 20px 60px #0008
 }
 
 .toast svg:first-child {
     color: #8ee6b0
 }
 
+.toast svg:last-child {
+    color: #777
+}
+
 @media(max-width:1100px) {
-    main {
-        grid-template-columns: 1fr;
-        padding: 22px
+    .grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    .libGrid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    .studioPage {
+        grid-template-columns: 1fr
     }
 
     aside {
         position: static
     }
-
-    .batchGrid {
-        grid-template-columns: repeat(2, 1fr)
-    }
-
-    .libraryGrid {
-        grid-template-columns: repeat(3, 1fr)
-    }
 }
 
 @media(max-width:700px) {
-    .topbar {
-        padding: 0 15px;
-        gap: 10px
+    header {
+        padding: 0 14px;
+        gap: 8px
     }
 
-    .topbar nav button {
-        font-size: 0;
-        padding: 9px
+    .brand b {
+        font-size: 13px
     }
 
-    .topbar nav button svg {
-        margin: 0
-    }
-
-    .seed {
+    .brand span {
         display: none
     }
 
-    main {
-        padding: 15px
-    }
-
-    .heroHead h1 {
-        font-size: 40px
-    }
-
-    .outline {
+    nav button {
         font-size: 0;
-        padding: 0 11px
+        padding: 8px
     }
 
-    .canvasFrame {
+    main {
+        padding: 17px
+    }
+
+    .hero {
+        padding: 30px 0
+    }
+
+    .hero h1 {
+        font-size: 54px
+    }
+
+    .toolbar {
+        display: block
+    }
+
+    .search {
+        width: 100%;
+        margin-bottom: 9px
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .styleCard canvas {
+        height: 180px
+    }
+
+    .studioTop h2,
+    .libraryTop h2 {
+        font-size: 34px
+    }
+
+    .preview {
         min-height: 430px
     }
 
-    .canvasFrame.tall canvas {
+    .preview.tall canvas {
         height: 470px
     }
 
@@ -700,30 +671,11 @@ select {
         grid-column: 1/-1
     }
 
-    .aiRow {
-        flex-wrap: wrap
-    }
-
-    .aiRow select,
-    .aiRow input,
-    .aiRow .primary {
-        width: 100%;
-        flex: unset
-    }
-
-    .batchGrid {
-        grid-template-columns: 1fr
-    }
-
-    .libraryGrid {
+    .libGrid {
         grid-template-columns: 1fr 1fr
     }
 
-    .sectionHead {
-        align-items: flex-end
-    }
-
-    .sectionHead h2 {
-        font-size: 27px
+    .studioTop button {
+        font-size: 0
     }
 }
